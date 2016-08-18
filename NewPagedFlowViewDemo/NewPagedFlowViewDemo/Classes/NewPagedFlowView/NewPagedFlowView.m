@@ -67,6 +67,8 @@
     
     if (self.orginPageCount > 1) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:self.autoTime target:self selector:@selector(autoNextPage) userInfo:nil repeats:YES];
+        //不会因scrollView类滑动而停止计时
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     
 }
